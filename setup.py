@@ -22,7 +22,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'ricoh-cloud-sdk==0.3.0',
+        'ricoh-cloud-sdk==0.3.1',
         'Click'
     ],
     setup_requires=[

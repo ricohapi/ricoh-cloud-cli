@@ -11,7 +11,7 @@ Installation
 
   $ git clone https://github.com/ricohapi/ricoh-cloud-cli.git
   $ cd ricoh-cloud-cli
-  $ pip install . --find-links=git+https://github.com/ricohapi/ricoh-cloud-sdk-python.git#egg=ricoh-cloud-sdk-0.3.0
+  $ pip install . --find-links=git+https://github.com/ricohapi/ricoh-cloud-sdk-python.git@v0.3.1#egg=ricoh-cloud-sdk-0.3.1
 
 You can also download RICOH Cloud CLI in a zip file from https://github.com/ricohapi/ricoh-cloud-cli/releases and unzip it to ``<install_dir>``.
 
