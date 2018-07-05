@@ -24,7 +24,7 @@ def get_credential_info(profile):
             raise ValueError(CREDENTIALS_ERROR_STR)
         with open(CREDENTIALS_FILE_PATH) as f:
             credentials_json = json.load(f)
-            if not profile in credentials_json:
+            if profile not in credentials_json:
                 raise ValueError(CREDENTIALS_ERROR_STR)
             credentials = credentials_json[profile]
     else:

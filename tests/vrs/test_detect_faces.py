@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 # Copyright (c) 2017 Ricoh Co., Ltd. All Rights Reserved.
-import os
 import pytest
 from click.testing import CliRunner
 import ricohcloudcli.vrs.commands as vrs

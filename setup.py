@@ -22,7 +22,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'ricoh-cloud-sdk==0.3.1',
+        'ricoh-cloud-sdk==0.4.0',
         'Click'
     ],
     setup_requires=[
@@ -32,7 +32,8 @@ setup(
     tests_require=[
         'pytest-cov',
         'mock',
-        'pytest'
+        'pytest',
+        'pytest-pycodestyle'
     ],
     entry_points={
         'console_scripts':

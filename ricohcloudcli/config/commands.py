@@ -20,7 +20,7 @@ def configure(profile):
     rapi_client_id = click.prompt(
         'RAPI Client ID', type=str, hide_input=True, prompt_suffix=': ')
     rapi_client_secret = click.prompt(
-        'RAPI Client Secret', type=str, hide_input=True,  prompt_suffix=': ')
+        'RAPI Client Secret', type=str, hide_input=True, prompt_suffix=': ')
     credentials_json = {}
     if os.path.isfile(CREDENTIALS_FILE_PATH):
         with open(CREDENTIALS_FILE_PATH, 'r') as f:

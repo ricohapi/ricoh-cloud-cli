@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 # Copyright (c) 2017 Ricoh Co., Ltd. All Rights Reserved.
 
+import json
 import pytest
+import click
 from click.testing import CliRunner
-from ricohcloudcli.vrs import commands as vrs
+from ricohcloudcli.ips.filter import commands
 
 
 class TestCaseNormal(object):
@@ -12,36 +14,36 @@ class TestCaseNormal(object):
         ('-h'),
         ('--help')
     ])
-    def test_help_vrs(self, option):
+    def test_help_ips(self, option):
         runner = CliRunner()
-        result = runner.invoke(vrs.vrs, [option])
+        result = runner.invoke(commands.filter, [option])
         assert result.exit_code == 0
-        assert 'Visual Recognition Service' in result.output
+        assert 'Image Filtering' in result.output
 
 
 class TestCaseException(object):
 
     @pytest.mark.parametrize('option', [
         ('test'),
-        ('vrs'),
+        ('ips'),
         ('False'),
         ('123'),
     ])
     def test_invalid_command(self, option):
         runner = CliRunner()
-        result = runner.invoke(vrs.vrs, [option])
+        result = runner.invoke(commands.filter, [option])
         assert result.exit_code == 2
-        assert 'Usage: vrs [OPTIONS] COMMAND [ARGS]' in result.output
+        assert 'Usage: filter [OPTIONS] COMMAND [ARGS]' in result.output
         assert 'Error: No such command' in result.output
 
     @pytest.mark.parametrize('option', [
         ('--test'),
-        ('--vrs'),
+        ('--ips'),
         ('--False'),
         ('--123'),
     ])
     def test_invalid_option(self, option):
         runner = CliRunner()
-        result = runner.invoke(vrs.vrs, [option])
+        result = runner.invoke(commands.filter, [option])
         assert result.exit_code == 2
         assert 'Error: no such option' in result.output

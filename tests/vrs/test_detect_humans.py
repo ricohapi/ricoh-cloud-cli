@@ -42,7 +42,8 @@ class TestCaseNormal(object):
     ])
     def test_ok_detect_humans(self, config, image):
         runner = CliRunner()
-        result = runner.invoke(vrs.detect_humans, ['--image', image], obj=config)
+        result = runner.invoke(vrs.detect_humans, [
+                               '--image', image], obj=config)
         assert result.exit_code == 0
         assert 'humans' in result.output
 
@@ -93,7 +94,8 @@ class TestCaseException(object):
     ])
     def test_missing_path(self, config, option, missing_path):
         runner = CliRunner()
-        result = runner.invoke(vrs.detect_humans, [option, missing_path], obj=config)
+        result = runner.invoke(vrs.detect_humans, [
+                               option, missing_path], obj=config)
         assert util.INVALID_MESSAGE in result.output
 
     @pytest.mark.parametrize(('option', 'invalid_format'), [
@@ -102,7 +104,8 @@ class TestCaseException(object):
     ])
     def test_invalid_format(self, config, option, invalid_format):
         runner = CliRunner()
-        result = runner.invoke(vrs.detect_humans, [option, invalid_format], obj=config)
+        result = runner.invoke(vrs.detect_humans, [
+                               option, invalid_format], obj=config)
         assert util.UNSUPPORTED_MESSAGE in result.output
 
     @pytest.mark.parametrize(('option', 'invalid_format'), [
@@ -113,5 +116,6 @@ class TestCaseException(object):
         obj = {}
         obj['profile'] = 'test'
         runner = CliRunner()
-        result = runner.invoke(vrs.detect_humans, [option, invalid_format], obj=config)
+        result = runner.invoke(vrs.detect_humans, [
+                               option, invalid_format], obj=config)
         assert util.UNPROCESSABLE_MESSAGE in result.output

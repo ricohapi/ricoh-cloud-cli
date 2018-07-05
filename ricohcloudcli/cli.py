@@ -8,9 +8,11 @@ import click
 import ricohcloudcli
 from .config.commands import configure
 from .vrs.commands import vrs
+from .ips.commands import ips
 
 HELP_CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 HELP_PROFILE = 'Use a specific profile from your credential file.'
+
 
 @click.group(help='RICOH Cloud CLI', context_settings=HELP_CONTEXT_SETTINGS)
 @click.option('--profile', type=str, default='default', help=HELP_PROFILE)
@@ -23,10 +25,12 @@ def rapi(ctx, profile):
 
 rapi.add_command(configure)
 rapi.add_command(vrs)
+rapi.add_command(ips)
 
 
 def main():
     rapi(obj={})
+
 
 if __name__ == '__main__':
     main()
